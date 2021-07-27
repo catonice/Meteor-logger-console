@@ -75,3 +75,17 @@ Tinytest.add('Trace', (test) => {
     test.isTrue(true);
   }
 });
+
+const log2 = new Logger();
+(new LoggerConsole(log2, {disableFormatting: true})).enable();
+console.log("This is how an unformatted console looks like.")
+log2.info('From: ' + ((Meteor.isServer) ? '[SERVER] ' : '[CLIENT] ') + 'Some info string ', {test: 'Info Data'});
+log2.info('From: ' + ((Meteor.isServer) ? '[SERVER] ' : '[CLIENT] ') + '(no data object) Some info string ');
+log2.debug('From: ' + ((Meteor.isServer) ? '[SERVER] ' : '[CLIENT] ') + 'Some debug string ', {test: 'Debug Data'});
+log2.debug('From: ' + ((Meteor.isServer) ? '[SERVER] ' : '[CLIENT] ') + '(no data object) Some debug string ');
+log2.error('From: ' + ((Meteor.isServer) ? '[SERVER] ' : '[CLIENT] ') + 'Some error string ', {test: 'Error Data'});
+log2.error('From: ' + ((Meteor.isServer) ? '[SERVER] ' : '[CLIENT] ') + '(no data object) Some error string ');
+log2.fatal('From: ' + ((Meteor.isServer) ? '[SERVER] ' : '[CLIENT] ') + 'Some fatal string ', {test: 'Fatal Data'});
+log2.fatal('From: ' + ((Meteor.isServer) ? '[SERVER] ' : '[CLIENT] ') + '(no data object) Some fatal string');
+log2.warn('From: ' + ((Meteor.isServer) ? '[SERVER] ' : '[CLIENT] ') + 'Some warn string ', {test: 'Warn Data'});
+log2.warn('From: ' + ((Meteor.isServer) ? '[SERVER] ' : '[CLIENT] ') + '(no data object) Some warn string ');
